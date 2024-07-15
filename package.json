@@ -1,0 +1,20 @@
+{
+  "name": "rspack-minimal-repro",
+  "version": "0.0.1",
+  "engines": {
+    "node": "^18.18.0 || ^20.9.0 || >=21.1.0",
+    "npm": "^9 || ^10"
+  },
+  "scripts": {
+    "clean": "rimraf coverage dist dist-rollup",
+    "start": "wds --watch",
+    "start:build": "wds --root-dir dist --app-index dist/output-index.html --open --compatibility none",
+    "build": "npm run clean && npm run build:rspack && cp output-index.html dist",
+    "build:rspack": "rspack --config build/rspack/config.js"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^0.7.5",
+    "@rspack/core": "^0.7.5",
+    "@web/dev-server": "^0.4.1"
+  }
+}
